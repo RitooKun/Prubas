@@ -37,7 +37,7 @@
                         <input type="color" class="form-control" id="color" >
                         <label for="color" class="form-label">Color</label>
                     </div>
-                </div>
+                </div> 
                 <div class="modal-footer">
 
                 </div>
