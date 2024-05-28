@@ -7,5 +7,6 @@
 </head>
 <body>
     <p>hola</p>
+    <p>adios</p>
 </body>
 </html>
