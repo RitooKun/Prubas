@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('start').value = info.dateStr;
         document.getElementById('titulo').textContent = 'Registro de Salas';
         myModal.show();
-          }
+          },
+          eventClick : function (info){
+            console.log(info)
+            document.getElementById('id').value = info.event.id;
+            myModal.show();
+           }
     });
     calendar.render();
     frm.addEventListener('submit', function(e){
