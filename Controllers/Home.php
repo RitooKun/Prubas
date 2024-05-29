@@ -30,7 +30,7 @@ class Home extends Controller
     public function listar()
     {
         $data = $this->model->listarEventos();
-        echo json_encode($data, JSON_UNEESCAPED_UNICODE);
+        echo json_encode($data);
         die();
     }
 }
