@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         center: 'title',
         right:'dayGridMonth, timeGridWeek, listWeek' 
       },
+      events: base_url + 'Home/listar',
       dateClick: function (info){
         //console.log(info)
         document.getElementById('start').value = info.dateStr;
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             Swal.fire(
                 'Aviso',
                 'Todo los campos son rqueridos',
-                'Wraning'
+                'Warning'
             )
         }else{
             const url = base_url + 'Home/registrar';
@@ -35,9 +36,21 @@ document.addEventListener('DOMContentLoaded', function() {
             http.open('POST', url, true);
             http.send(new FormData(frm));
             http.onreadystatechange = function(){
-                if(this.readyState == 4 && this.status == 200){
-                    console.log(this.responseText);
+                if (this.readyState == 4 && this.status == 200){
+                    //console.log(this.responseText);
+                    const respuesta = JSON.parse(this.responseText);
+                    console.log(respuesta);
+                    if (respuesta.estado){
+
+                    }
+                    myModal.hide()
+                    Swal.fire(
+                        'Aviso',
+                        respuesta.msg,
+                        respuesta.tipo
+                    )
                 }
+                
             }
         } 
     })

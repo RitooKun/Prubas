@@ -7,7 +7,7 @@ class HomeModel extends Query{
     public function registrar($evento, $fecha, $color)
     {
         $sql = "INSERT INTO eventos (title, start, color) VALUES(?,?,?)";
-        $array = array($evento,$fecha,$color);
+        $array = array($evento, $fecha, $color);
         $data = $this->save($sql, $array);
         if ( $data == 1){
             $msg = 1;
@@ -15,6 +15,11 @@ class HomeModel extends Query{
             $msg = 0;
         }
         return $msg;
+    }
+    public function listarEventos()
+    {
+        $sql = "SELECT * FROM eventos";
+        return $this->selectAll($sql);
     }
 }
 

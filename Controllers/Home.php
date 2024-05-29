@@ -16,8 +16,22 @@ class Home extends Controller
             $evento = $_POST['title'];
             $start = $_POST['start'];
             $color = $_POST['color'];
-            $respuesta = $this->model->registrar($evento,$fecha,$color);
-            echo $respuesta;
+            $respuesta = $this->model->registrar($evento,$start,$color);
+            if ($respuesta == 1) {
+                $mensaje = array('msg' => 'Evento registrado', 'Estado' => true , 'tipo' => 'success');
+            } else {
+                $mensaje = array('msg' => 'Error al registrar el evento', 'Estado' => false , 'tipo' => 'error');
+            };
+            echo json_encode($mensaje);
+            die();
+
         }
     }
+    public function listar()
+    {
+        $data = $this->model->listarEventos();
+        echo json_encode($data, JSON_UNEESCAPED_UNICODE);
+        die();
+    }
 }
+
