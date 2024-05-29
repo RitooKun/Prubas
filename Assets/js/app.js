@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const respuesta = JSON.parse(this.responseText);
                     console.log(respuesta);
                     if (respuesta.estado){
-
+                        calendar.refetchEvents();
                     }
                     myModal.hide()
                     Swal.fire(
