@@ -18,7 +18,7 @@ class HomeModel extends Query{
     }
     public function modificar($evento, $fecha, $color, $id)
     {
-        $sql = "UPDATE eventos SET title=?, start=?, color=?, WHERE id=?";
+        $sql = "UPDATE eventos SET title=?, start=?, color=? WHERE id=?";
         $array = array($evento, $fecha, $color, $id);
         $data = $this->save($sql, $array);
         if ( $data == 1){

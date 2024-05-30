@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     console.log(respuesta);
                     if (respuesta.estado){
                         calendar.refetchEvents();
-                    }
+                    };
                     myModal.hide()
                     Swal.fire(
                         'Aviso',
