@@ -20,16 +20,16 @@ class Home extends Controller
             if ($id == '') {
                 $respuesta = $this->model->registrar($evento,$start,$color);
                 if ($respuesta == 1) {
-                    $mensaje = array('msg' => 'Evento registrado', 'Estado' => true , 'tipo' => 'success');
+                    $mensaje = array('msg' => 'Reserva registrado', 'Estado' => true , 'tipo' => 'success');
                 } else {
-                    $mensaje = array('msg' => 'Error al registrar el evento', 'Estado' => false , 'tipo' => 'error');
+                    $mensaje = array('msg' => 'Error al registrar la reserva', 'Estado' => false , 'tipo' => 'error');
                 };
             }else{
                 $respuesta = $this->model->modificar($evento, $start, $color, $id);
                 if ($respuesta == 1) {
                     $mensaje = array('msg' => 'Reserva modificar', 'Estado' => true , 'tipo' => 'success');
                 } else {
-                    $mensaje = array('msg' => 'Error al modificar el reserva', 'Estado' => false , 'tipo' => 'error');
+                    $mensaje = array('msg' => 'Error al modificar la reserva', 'Estado' => false , 'tipo' => 'error');
                 };
             }
             echo json_encode($mensaje);
@@ -41,6 +41,17 @@ class Home extends Controller
     {
         $data = $this->model->listarEventos();
         echo json_encode($data, JSON_UNESCAPED_UNICODE);
+        die();
+    }
+    public function eliminar($id)
+    {
+        $data = $this->model->eliminar($id);
+        if ($data == 1) {
+            $mensaje = array('msg' => 'Reserva eleminado', 'Estado' => true , 'tipo' => 'success');
+        } else {
+            $mensaje = array('msg' => 'Error al eliminar la reserva', 'Estado' => false , 'tipo' => 'error');
+        };
+        echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
         die();
     }
 }

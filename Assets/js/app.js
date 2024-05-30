@@ -84,11 +84,28 @@ document.addEventListener('DOMContentLoaded', function() {
             cancelButtonText: "Cancelar"
           }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire({
-                title: "Eliminado",
-                text: "La reservacion a sido eliminada",
-                icon: "success"
-              });
+                const id = document.getElementById('id').value;
+                const url = base_url + 'Home/eliminar/' + id;
+                const http = new XMLHttpRequest();
+                http.open('GET', url, true);
+                http.send(new FormData(frm));
+                http.onreadystatechange = function(){
+                    if (this.readyState == 4 && this.status == 200){
+                        //console.log(this.responseText);
+                        const respuesta = JSON.parse(this.responseText);
+                        console.log(respuesta);
+                        if (respuesta.estado){
+                           
+                        };
+                        calendar.refetchEvents();
+                        Swal.fire(
+                            'Aviso',
+                            respuesta.msg,
+                            respuesta.tipo
+                        )
+                    }
+                    
+                }
             }
           });
     })

@@ -28,6 +28,19 @@ class HomeModel extends Query{
         }
         return $msg;
     }
+    public function eliminar($id)
+    {
+        $sql = "DELETE FROM eventos WHERE id=?";
+        $array = array($id);
+        $data = $this->save($sql, $array);
+        if ( $data == 1){
+            $msg = 1;
+        }else{
+            $msg = 0;
+        }
+        return $msg;
+    }
+    
     public function listarEventos()
     {
         $sql = "SELECT * FROM eventos";
