@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //console.log(info)
         frm.reset();
         document.getElementById('id').value = '';
-        document.getElementById('btnEliminar').classList.add('d-none')
+        document.getElementById('btnEliminar').classList.add('d-none');
         document.getElementById('start').value = info.dateStr;
         document.getElementById('btnAccion').textContent = 'Registrar';
         document.getElementById('titulo').textContent = 'Registro de Salas';
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
           },
           eventClick : function (info){
             console.log(info)
-            document.getElementById('btnEliminar').classList.remove('d-none')
+            document.getElementById('btnEliminar').classList.remove('d-none');
             document.getElementById('titulo').textContent = 'Modificar Salas';
             document.getElementById('btnAccion').textContent = 'Modificar';
             document.getElementById('id').value = info.event.id;
@@ -70,3 +70,5 @@ document.addEventListener('DOMContentLoaded', function() {
         } 
     })
  });
+
+

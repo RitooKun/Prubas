@@ -25,7 +25,7 @@ class Home extends Controller
                     $mensaje = array('msg' => 'Error al registrar el evento', 'Estado' => false , 'tipo' => 'error');
                 };
             }else{
-                $respuesta = $this->model->modificar($evento,$start,$color, $id);
+                $respuesta = $this->model->modificar($evento, $start, $color, $id);
                 if ($respuesta == 1) {
                     $mensaje = array('msg' => 'Reserva modificar', 'Estado' => true , 'tipo' => 'success');
                 } else {
