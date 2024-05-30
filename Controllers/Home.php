@@ -16,12 +16,22 @@ class Home extends Controller
             $evento = $_POST['title'];
             $start = $_POST['start'];
             $color = $_POST['color'];
-            $respuesta = $this->model->registrar($evento,$start,$color);
-            if ($respuesta == 1) {
-                $mensaje = array('msg' => 'Evento registrado', 'Estado' => true , 'tipo' => 'success');
-            } else {
-                $mensaje = array('msg' => 'Error al registrar el evento', 'Estado' => false , 'tipo' => 'error');
-            };
+            $id = $_POST['id'];
+            if ($id == '') {
+                $respuesta = $this->model->registrar($evento,$start,$color);
+                if ($respuesta == 1) {
+                    $mensaje = array('msg' => 'Evento registrado', 'Estado' => true , 'tipo' => 'success');
+                } else {
+                    $mensaje = array('msg' => 'Error al registrar el evento', 'Estado' => false , 'tipo' => 'error');
+                };
+            }else{
+                $respuesta = $this->model->modificar($evento,$start,$color, $id);
+                if ($respuesta == 1) {
+                    $mensaje = array('msg' => 'Reserva modificar', 'Estado' => true , 'tipo' => 'success');
+                } else {
+                    $mensaje = array('msg' => 'Error al modificar el reserva', 'Estado' => false , 'tipo' => 'error');
+                };
+            }
             echo json_encode($mensaje);
             die();
 

@@ -26,7 +26,7 @@
             <form id='formulario'>
                 <div class="modal-body">
                     <div class="form-floating mb-3">
-                        <input type="text" id="id" name="id">
+                        <input type="hidden" id="id" name="id">
                         <input type="text" class="form-control" id="title" name="title">
                         <label for="title" class="form-label">Evento</label>
                     </div>
@@ -41,7 +41,7 @@
                 </div> 
                 <div class="modal-footer">
                     <button class="btn btn-warning">Cancelar</button>
-                    <button class="btn btn-danger">Eliminar</button>
+                    <button class="btn btn-danger" type="button" id="btnEliminar">Eliminar</button>
                     <button class="btn btn-info" id="btnAccion" type="submit">Registrar</button>
                 </div>
             </form>

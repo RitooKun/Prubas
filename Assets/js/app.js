@@ -13,13 +13,23 @@ document.addEventListener('DOMContentLoaded', function() {
       events: base_url + 'Home/listar',
       dateClick: function (info){
         //console.log(info)
+        frm.reset();
+        document.getElementById('id').value = '';
+        document.getElementById('btnEliminar').classList.add('d-none')
         document.getElementById('start').value = info.dateStr;
+        document.getElementById('btnAccion').textContent = 'Registrar';
         document.getElementById('titulo').textContent = 'Registro de Salas';
         myModal.show();
           },
           eventClick : function (info){
             console.log(info)
+            document.getElementById('btnEliminar').classList.remove('d-none')
+            document.getElementById('titulo').textContent = 'Modificar Salas';
+            document.getElementById('btnAccion').textContent = 'Modificar';
             document.getElementById('id').value = info.event.id;
+            document.getElementById('title').value = info.event.title;
+            document.getElementById('start').value = info.event.startStr;
+            document.getElementById('color').value = info.event.backgroundColor;
             myModal.show();
            }
     });
