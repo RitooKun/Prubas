@@ -54,5 +54,18 @@ class Home extends Controller
         echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
         die();
     }
+    public function drop()
+    {
+        $fecha = $_POST['fecha'];
+        $id = $_POST['id'];
+        $data = $this->model->drop($fecha, $id);
+        if ($data == 1) {
+            $mensaje = array('msg' => 'Reserva modificada', 'Estado' => true , 'tipo' => 'success');
+        } else {
+            $mensaje = array('msg' => 'Error al modificar la reserva', 'Estado' => false , 'tipo' => 'error');
+        };
+        echo json_encode($mensaje, JSON_UNESCAPED_UNICODE);
+        die();
+    }
 }
 
