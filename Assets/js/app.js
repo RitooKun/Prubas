@@ -1,5 +1,6 @@
 var myModal = new bootstrap.Modal(document.getElementById('mymodal'));
 let frm = document.getElementById('formulario');
+let eliminar = document.getElementById('btnEliminar');
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         //console.log(info)
         frm.reset();
         document.getElementById('id').value = '';
-        document.getElementById('btnEliminar').classList.add('d-none');
+        eliminar.classList.add('d-none');
         document.getElementById('start').value = info.dateStr;
         document.getElementById('btnAccion').textContent = 'Registrar';
         document.getElementById('titulo').textContent = 'Registro de Salas';
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
           },
           eventClick : function (info){
             console.log(info)
-            document.getElementById('btnEliminar').classList.remove('d-none');
+            eliminar.classList.remove('d-none');
             document.getElementById('titulo').textContent = 'Modificar Salas';
             document.getElementById('btnAccion').textContent = 'Modificar';
             document.getElementById('id').value = info.event.id;
@@ -56,8 +57,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     const respuesta = JSON.parse(this.responseText);
                     console.log(respuesta);
                     if (respuesta.estado){
-                        calendar.refetchEvents();
+                       
                     };
+                    calendar.refetchEvents();
                     myModal.hide()
                     Swal.fire(
                         'Aviso',
@@ -68,6 +70,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 
             }
         } 
+    })
+    eliminar.addEventListener('click', function(){
+        myModal.hide();
+        Swal.fire({
+            title: "Advertencia!",
+            text: "Estas seguro de eliminar?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, Eliminar",
+            cancelButtonText: "Cancelar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire({
+                title: "Eliminado",
+                text: "La reservacion a sido eliminada",
+                icon: "success"
+              });
+            }
+          });
     })
  });
 
