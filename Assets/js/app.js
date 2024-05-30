@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
            eventDrop: function (info){
             const id = info.event.id;
             const fecha = info.event.startStr;
-            const url = base_url + 'Home/drop' + id;
+            const url = base_url + 'Home/drop';
             const http = new XMLHttpRequest();
             const data = new FormData();
             data.append('id', id);
