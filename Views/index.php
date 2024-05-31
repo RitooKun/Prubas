@@ -35,12 +35,20 @@
                         <label for="start" class="form-label">Fecha</label>
                     </div>
                     <div class="form-floating mb-3">
+                        <input type="Time" class="form-control" id="time_start" name="time_start">
+                        <label for="time_start" class="form-label">Hora inicio</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="Time" class="form-control" id="time_end" name="time_end">
+                        <label for="time_end" class="form-label">Hora a Terminar</label>
+                    </div>
+                    <div class="form-floating mb-3">
                         <input type="color" class="form-control" id="color" name="color">
                         <label for="color" class="form-label">Color</label>
                     </div>
                 </div> 
                 <div class="modal-footer">
-                    <button class="btn btn-warning">Cancelar</button>
+                    <button class="btn btn-warning" type="button" data-bs-dismiss="modal">Cancelar</button>
                     <button class="btn btn-danger" type="button" id="btnEliminar">Eliminar</button>
                     <button class="btn btn-info" id="btnAccion" type="submit">Registrar</button>
                 </div>

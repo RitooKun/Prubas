@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
       initialView: 'dayGridMonth',
       locale: 'es',
       headerToolbar: {
-        left : 'prev, next, today',
+        left : 'prev next today',
         center: 'title',
-        right:'dayGridMonth, timeGridWeek, listWeek' 
+        right:'dayGridMonth timeGridWeek listWeek' 
       },
       events: base_url + 'Home/listar',
       editable: true,
