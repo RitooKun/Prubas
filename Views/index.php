@@ -62,7 +62,6 @@
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="<?php echo base_url; ?>Assets/js/bootstrap.bundle.min.js"></script>
     <script src="<?php echo base_url; ?>Assets/js/index.global.min.js"></script>
-    <script src="<?php echo base_url; ?>Assets/js/moment.js"></script>
     <script src="<?php echo base_url; ?>Assets/js/sweetalert2.all.min.js"></script>
     <script>
         const base_url = '<?php echo base_url; ?>';

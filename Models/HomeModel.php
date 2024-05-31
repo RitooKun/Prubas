@@ -5,10 +5,10 @@ class HomeModel extends Query{
         parent::__construct();
     }
 
-    public function registrar($evento, $fecha, $color)
+    public function registrar($evento, $fecha, $time_start, $time_end, $color)
     {
-        $sql = "INSERT INTO eventos (title, start, color) VALUES(?,?,?)";
-        $array = array($evento, $fecha, $color);
+        $sql = "INSERT INTO eventos (title, start, time_start, time_end, color) VALUES(?,?,?,?,?)";
+        $array = array($evento, $fecha, $time_start, $time_end, $color);
         $data = $this->save($sql, $array);
         if ( $data == 1){
             $msg = 1;

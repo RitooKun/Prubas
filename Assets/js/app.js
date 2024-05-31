@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('titulo').textContent = 'Registro de Salas';
         myModal.show();
           },
+
+          // modificar con el click de al registro de sala
+
           eventClick : function (info){
             console.log(info)
             eliminar.classList.remove('d-none');
@@ -31,9 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('id').value = info.event.id;
             document.getElementById('title').value = info.event.title;
             document.getElementById('start').value = info.event.startStr;
+            document.getElementById('time_start').value = info.event.time_start;
+            document.getElementById('time_end').value = info.event.time_end;
             document.getElementById('color').value = info.event.backgroundColor;
             myModal.show();
            },
+
+           //funcion de arrastre de registro de sala
+
            eventDrop: function (info){
             const id = info.event.id;
             const fecha = info.event.startStr;
@@ -63,13 +71,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
            }
     });
+
+    //Validacion de los campos antes de enviar los datos a la base de datos
+
     calendar.render();
     frm.addEventListener('submit', function(e){
         e.preventDefault();
         const title = document.getElementById('title').value;
         const fecha = document.getElementById('start').value;
+        const time_start = document.getElementById('time_start').value;
+        const time_end = document.getElementById('time_end').value;
         const color = document.getElementById('color').value;
-        if(title == '' || fecha == '' || color == ''){
+        if(title == '' || fecha == '' || time_start == '' || time_end == '' || color == ''){
             Swal.fire(
                 'Aviso',
                 'Todo los campos son rqueridos',
@@ -100,6 +113,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } 
     })
+
+    // Eliminar salas
+
     eliminar.addEventListener('click', function(){
         myModal.hide();
         Swal.fire({
