@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
           eventClick : function (info){
             console.log(info)
+            
             eliminar.classList.remove('d-none');
             document.getElementById('titulo').textContent = 'Modificar Salas';
             document.getElementById('btnAccion').textContent = 'Modificar';
