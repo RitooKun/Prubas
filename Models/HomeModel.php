@@ -18,10 +18,10 @@ class HomeModel extends Query{
         return $msg;
     }
 
-    public function modificar($evento, $fecha, $color, $id)
+    public function modificar($evento, $fecha, $time_start, $time_end, $color, $id)
     {
-        $sql = "UPDATE eventos SET title=?, start=?, color=? WHERE id=?";
-        $array = array($evento, $fecha, $color, $id);
+        $sql = "UPDATE eventos SET title=?, start=?, time_start=?, time_end=?, color=? WHERE id=?";
+        $array = array($evento, $fecha, $time_start, $time_end, $color, $id);
         $data = $this->save($sql, $array);
         if ( $data == 1){
             $msg = 1;

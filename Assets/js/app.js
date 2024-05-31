@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('id').value = info.event.id;
             document.getElementById('title').value = info.event.title;
             document.getElementById('start').value = info.event.startStr;
-            document.getElementById('time_start').value = info.event.time_start;
-            document.getElementById('time_end').value = info.event.time_end;
+            document.getElementById('time_start').value = info.event.extendedProps.time_start;
+            document.getElementById('time_end').value = info.event.extendedProps.time_end;
             document.getElementById('color').value = info.event.backgroundColor;
             myModal.show();
            },
@@ -45,11 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
            eventDrop: function (info){
             const id = info.event.id;
             const fecha = info.event.startStr;
+            const inicio = info.event.extendedProps.time_start;
+            const fin = info.event.extendedProps.time_end;
             const url = base_url + 'Home/drop';
             const http = new XMLHttpRequest();
             const data = new FormData();
             data.append('id', id);
             data.append('fecha', fecha);
+            data.append('time_start', inicio);
+            data.append('time_end', fin);
             http.open('POST', url, true);
             http.send(data);
             http.onreadystatechange = function(){
