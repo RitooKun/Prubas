@@ -23,11 +23,10 @@
                 <form action="" class="formulario__login">
 
                     <h2>Iniciar sesion</h2>
-                    <input type="text" name="username" placeholder="Usuario" required>
-                    <label for="password"></label>
+                    <input type="text" name="username" placeholder="Usuario" required maxlength="12">
                     <input type="password" name="passsword" placeholder="Contraseña" required>
                     <button>Entrar</button>
-                    <button class="btn_registrar"><a href="#">Registrate!</a></button>
+                    <button class="btn_registrar">Registrarse</button>
                 </form>
             </div>
         </div> 

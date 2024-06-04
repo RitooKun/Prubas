@@ -6,8 +6,11 @@ class Home extends Controller
     }
     public function index()
     {
-        $this->views->getView($this, 'login');
+        $this->views->getView($this, 'register');
     }
+
+     
+
     public function registrar()
     {
         // Verifica Que no contengan campos vacios

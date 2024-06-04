@@ -110,6 +110,7 @@ main{
     font-size: 16px;
     outline: none;
     text-decoration: none;
+    border-radius: 5px;
 }
 
 
@@ -117,6 +118,7 @@ main{
 .contenedor__Login form button a{
     padding: 10px 40px;
     margin-top: 40px; 
+    margin-left: 10px;
     border: none;
     font-size: 14px;
     background: rgb(0, 128, 201);
@@ -124,7 +126,9 @@ main{
     cursor: pointer;
     outline: none;
     text-decoration: none;
+    border-radius: 5px;
 }
+
 
 .formulario__login{
     opacity: 1;

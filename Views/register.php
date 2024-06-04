@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="Assets/css/estilo_login_register.css">
+    <link rel="stylesheet" href="<?php echo base_url;?>Assets/css/estilo_login_register.css">
 </head>
 <body>
     <main>
@@ -27,6 +27,7 @@
                     <input type="text" placeholder="№ identificacion" required maxlength="12">
                     <input type="email" placeholder="Correo electronico" required maxlength="40">
                     <button>Entrar</button>
+                    <button class="btn_registrar">Iniciar sesión</button>
                 </form>
             </div>
         </div> 
