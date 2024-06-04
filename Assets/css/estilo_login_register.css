@@ -6,6 +6,9 @@
     font-family: 'roboto', sans-serif;
 }
 
+
+
+
 /*rgb(0, 61, 123) →→→  #003D7B
 rgb(0, 128, 201) →→→  #0080C9 */
 
@@ -106,13 +109,14 @@ main{
     background: #f2f2f2;
     font-size: 16px;
     outline: none;
+    text-decoration: none;
 }
 
 
 .contenedor__Login form button,
 .contenedor__Login form button a{
     padding: 10px 40px;
-    margin-top: 40px;
+    margin-top: 40px; 
     border: none;
     font-size: 14px;
     background: rgb(0, 128, 201);

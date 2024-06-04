@@ -1,6 +1,14 @@
+// creando modal 
+
 var myModal = new bootstrap.Modal(document.getElementById('mymodal'));
+
+// obteniendo id del formulario
+
 let frm = document.getElementById('formulario');
 let eliminar = document.getElementById('btnEliminar');
+
+// haciendo funcion del calendario
+
 document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -11,8 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
         center: 'title',
         right:'dayGridMonth timeGridWeek listWeek' 
       },
+
+      // creando lugar donde se van a alistar las funciones del calendario
+
       events: base_url + 'Home/listar',
       editable: true,
+
+      // funcion para registrar un sala desde el calendario
+
       dateClick: function (info){
         //console.log(info)
         frm.reset();
@@ -50,6 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const fin = info.event.extendedProps.time_end;
             const url = base_url + 'Home/drop';
             const http = new XMLHttpRequest();
+
+            // creacion de nuevo formulario para enviar datos 
+
             const data = new FormData();
             data.append('id', id);
             data.append('fecha', fecha);
